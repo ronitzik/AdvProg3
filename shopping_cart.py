@@ -10,6 +10,11 @@ class ShoppingCart:
         
     #Insert the object into the shopping cart, if it is in the cart already, raises ItemAlreadyExistsError   
     def add_item(self, item: Item):
+        
+        #Check if the price is legal (not negative)
+        if item.price < 0:
+            raise errors.ItemCanNotHaveNegativePrice
+        
         if item in self.itemList:
             raise errors.ItemAlreadyExistsError
         else: 
@@ -45,3 +50,4 @@ class ShoppingCart:
             totalPrice+=item.price
         
         return totalPrice
+    

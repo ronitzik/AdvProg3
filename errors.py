@@ -8,3 +8,6 @@ class ItemAlreadyExistsError(Exception):
 
 class TooManyMatchesError(Exception):
     pass
+
+class ItemCanNotHaveNegativePrice(Exception):
+    pass
