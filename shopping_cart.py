@@ -14,6 +14,12 @@ class ShoppingCart:
         """
         Insert the object into the shopping cart.
         If it is already in the cart, raises ItemAlreadyExistsError.
+        Parameters:
+        - item (Item): The item to be added to the shopping cart.
+
+        Raises:
+        - ItemAlreadyExistsError: If the item is already in the cart.
+        - ItemCanNotHaveNegativePrice: If the item has a negative price.
         """
         # Check if the price is legal (not negative)
         if item.price < 0:
@@ -27,6 +33,9 @@ class ShoppingCart:
     def items_names_list(self):
         """Helper function for remove_item.
         Construct a list of names of the items in the shopping cart.
+
+        Returns:
+        - list: List of names of items in the shopping cart.
         """
         names_list = []
         for item in self.item_list:
@@ -36,6 +45,12 @@ class ShoppingCart:
     def remove_item(self, item_name: str):
         """Remove the item from the shopping cart by name.
         Raises ItemNotExistError if the item is not in the cart.
+
+        Parameters:
+        - item_name (str): The name of the item to be removed.
+
+        Raises:
+        - ItemNotExistError: If the item is not in the cart.
         """
         # Raise an error if the item is not in the names list of
         # the shopping cart
@@ -48,7 +63,11 @@ class ShoppingCart:
                     break
 
     def get_subtotal(self) -> int:
-        """Calculate and return the subtotal of the shopping cart."""
+        """Calculate and return the subtotal of the shopping cart.
+
+        Returns:
+        - int: Subtotal price of all items in the shopping cart.
+        """
         total_price = 0
 
         # Summing up the price of each item
